@@ -48,9 +48,9 @@ try {
     }
 
     if (isValid) {
-        console.log(`Branch ${pullRequestHeadRef} allowed`);
+        console.log(`branch ${pullRequestHeadRef} allowed`);
     } else {
-        core.setFailed(`Branch ${pullRequestHeadRef} not allowed`);
+        core.setFailed(`branch ${pullRequestHeadRef} not allowed`);
     }
 
 } catch (error) {
