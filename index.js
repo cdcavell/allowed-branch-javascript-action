@@ -22,14 +22,14 @@ try {
             var comparer = item.trim();
             var branch = pullRequestHeadRef.trim();
             if (comparer.startsWith("*")) {
-                if (branch.endsWith(comparer.replace('*', ''))) {
+                if (branch.endsWith(comparer.replace("*", ""))) {
                     isValid = true;
                     console.log(`compared ${branch} ends with ${comparer} : passed`);
                 } else {
                     console.log(`compared ${branch} ends with ${comparer} : failed`);
                 }
             } else if (comparer.endsWith("*")) {
-                if (branch.startsWith(comparer.replace('*', ''))) {
+                if (branch.startsWith(comparer.replace("*", ""))) {
                     isValid = true;
                     console.log(`compared ${branch} starts with ${comparer} : passed`);
                 } else {
