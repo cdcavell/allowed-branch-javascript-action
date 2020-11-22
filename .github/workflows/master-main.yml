@@ -1,0 +1,19 @@
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  allowed_branch_job:
+    runs-on: ubuntu-latest
+    name: Allowed Branch
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Validate action step
+        uses: ./ # Uses an action in the root directory
+        id: allowed-branch
+        with:
+          allowed-branch: 'develop'

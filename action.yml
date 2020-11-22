@@ -1,0 +1,10 @@
+name: 'Allowed Branch'
+description: 'Return success if allowed branch, failure otherwise'
+inputs:
+  allowed-branch:  # id of input
+    description: 'Branches that are allowed delimited by comma'
+    required: true
+    default: 'develop'
+runs:
+  using: 'node12'
+  main: 'index.js'
