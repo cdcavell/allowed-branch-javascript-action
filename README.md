@@ -41,3 +41,8 @@ Wildcard `*` is allowed, for example:
 - feature/v1.1
 - feature/v1.0.1
 
+`*v1` will evaluate true for:
+- feature/v1
+- hotfix/v1
+- release/v1
+
