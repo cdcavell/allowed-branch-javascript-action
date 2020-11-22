@@ -12,9 +12,9 @@ try {
     var isValid = false;
 
     if (typeof pullRequestHeadRef === 'undefined') {
-        core.setFailed('pullRequestHeadRef not defined');
+        core.setFailed('pull_request.head.ref not defined');
     } else if (pullRequestHeadRef === null) {
-        core.setFailed('pullRequestHeadRef not defined');
+        core.setFailed('pull_request.head.ref not defined');
     } else {
 
         allowedBranchArray.forEach(function (item, index) {
@@ -24,23 +24,23 @@ try {
             if (comparer.startsWith("*")) {
                 if (branch.endsWith(comparer.replace(/\*/g, ""))) {
                     isValid = true;
-                    console.log(`compared ${branch} ends with ${comparer} : passed`);
+                    console.log(`evaluate ${branch} ends with ${comparer} : passed`);
                 } else {
-                    console.log(`compared ${branch} ends with ${comparer} : failed`);
+                    console.log(`evaluate ${branch} ends with ${comparer} : failed`);
                 }
             } else if (comparer.endsWith("*")) {
                 if (branch.startsWith(comparer.replace(/\*/g, ""))) {
                     isValid = true;
-                    console.log(`compared ${branch} starts with ${comparer} : passed`);
+                    console.log(`evaluate ${branch} starts with ${comparer} : passed`);
                 } else {
-                    console.log(`compared ${branch} starts with ${comparer} : failed`);
+                    console.log(`evaluate ${branch} starts with ${comparer} : failed`);
                 }
             } else {
                 if (branch.localeCompare(comparer) === 0) {
                     isValid = true;
-                    console.log(`compared ${branch} equals ${comparer} : passed`);
+                    console.log(`evaluate ${branch} equals ${comparer} : passed`);
                 } else {
-                    console.log(`compared ${branch} equals ${comparer} : failed`);
+                    console.log(`evaluate ${branch} equals ${comparer} : failed`);
                 }
             }
         });
@@ -48,9 +48,9 @@ try {
     }
 
     if (isValid) {
-        console.log(`Merging of ${pullRequestHeadRef} allowed`);
+        console.log(`branch ${pullRequestHeadRef} allowed`);
     } else {
-        core.setFailed(`Merging of ${pullRequestHeadRef} not allowed`);
+        core.setFailed(`branch ${pullRequestHeadRef} not allowed`);
     }
 
 } catch (error) {
